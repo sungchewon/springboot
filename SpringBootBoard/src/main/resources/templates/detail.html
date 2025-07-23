@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세보기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">게시글 상세보기</h5>
+            </div>
+            <div class="card-body">
+                <h3 th:text = "${detail.title}">제목</h3>
+                <p class="text-muted">작성자: <span th:text = "${detail.writer}"></span></p>
+                <p class="text-muted">작성일: <span th:text = "${detail.writeDay}"></span></p>
+                
+                <!-- 이미지 출력 (이미지가 있을 경우만) -->
+                <div class = "text-center my-3" th:if="${detail.imgPath !=null}">
+                	<img th:src = "@{${detail.imgPath}}" class="img-fluid"
+                 	 style="max-width: 500px; border-radius: 10px;" alt="첨부 이미지">
+                
+                </div>
+
+                <hr>
+                <p th:text = "${detail.content}" style="white-space: pre-line;">내용</p>
+                
+                <!-- 수정 / 삭제 버튼 -->
+                <div class="mt-4 d-flex justify-content-end"
+                	th:if = "${session.user !=null and session.user.userId == detail.writer}">
+                	<button th:onclick = "|location.href='/board/edit/${detail.id}'|">수정</button>
+                	<button>삭제</button>
+                
+                </div>
+                
+                <!-- 뒤로 가기 버튼 -->
+                <div class="mt-4 d-flex justify-content-end">
+                    <button class="btn btn-secondary" onclick="location.href='/'">목록으로</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
