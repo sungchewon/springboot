@@ -19,6 +19,7 @@
                 
                 <!-- 이미지 출력 (이미지가 있을 경우만) -->
                 <div class = "text-center my-3" th:if="${detail.imgPath !=null}">
+                	<p th:text = "@{${detail.imgPath}}"> </p>
                 	<img th:src = "@{${detail.imgPath}}" class="img-fluid"
                  	 style="max-width: 500px; border-radius: 10px;" alt="첨부 이미지">
                 
