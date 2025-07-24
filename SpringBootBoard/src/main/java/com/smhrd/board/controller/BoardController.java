@@ -78,7 +78,7 @@ public class BoardController {
 				
 				// 경로를 별도의 변수에 저장
 				// imgPath : 이미가 저장되는 위치를 데이터 베이스에 저장하는 것
-				imgPath = "/home/git/upload/" + file_name;
+				imgPath = "/uploads/" + file_name;
 				
 			} catch (IllegalStateException e) {
 				// TODO Auto-generated catch block
