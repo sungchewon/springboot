@@ -64,6 +64,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- AWS S3 SDK (NCP Object Storage와 호환) -->
+	    <dependency>
+	        <groupId>com.amazonaws</groupId>
+	        <artifactId>aws-java-sdk-s3</artifactId>
+	        <version>1.12.658</version>
+	    </dependency>
+		
 	</dependencies>
 
 	<build>
